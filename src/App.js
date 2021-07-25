@@ -1,50 +1,5 @@
 import React from "react";
-
-const Header = ({ course }) => {
-  return <h1>{course.name}</h1>;
-};
-
-const Total = ({ course }) => {
-  const exercises = course.parts.map((part) => {
-    return part.exercises;
-  });
-
-  const sum = exercises.reduce((a, b) => a + b);
-
-  return <h2>Number of exercises {sum}</h2>;
-};
-
-const Part = ({ part }) => {
-  return (
-    <p>
-      {part.name} {part.exercises}
-    </p>
-  );
-};
-
-const Content = ({ course }) => {
-  return (
-    <div>
-      {course.parts.map((part) => {
-        return <Part key={part.id} part={part} />;
-      })}
-    </div>
-  );
-};
-
-const Course = ({ courses }) => {
-  return (
-    <div>
-      {courses.map((course) => {
-        return [
-          <Header course={course} />,
-          <Content course={course} />,
-          <Total course={course} />,
-        ];
-      })}
-    </div>
-  );
-};
+import Course from "./components/Course";
 
 const App = () => {
   const courses = [
